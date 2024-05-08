@@ -1,43 +1,23 @@
 fn main() {
-    let mut total = 0; // Initialize a variable to track the sum
-
-    for n in 1..1000 {
-        // For each n, check divisibility
-
-        let truly_three: bool = divisible_by_three(n);
-        let truly_five: bool = divisible_by_five(n);
-        
-        // Add to total if divisible by 3 or 5. Print the values
-        // as well as the added value if there was one
-        
-        if truly_three | truly_five {
-            total += n;
-            println!("{total} (Added {n})");
-        } else {
-            println!("{total}");
-        }
-    }
-}
-
-// Functions to determine divisibility by three and five
-
-
-fn divisible_by_three(number: u32) -> bool {
-    // Return true if number is divisible by 3
+    let x = fibonacci(1000);
     
-    if number % 3 == 0 {
-        true
-    } else {
-        false
+    for num in &x {
+        println!("{num}")
     }
 }
 
-fn divisible_by_five(number: u32) -> bool {
-    // Return true if number is divisible by 5
-    
-    if number % 5 == 0 {
-        true
-    } else {
-        false
+// Function to generate a Fibonacci sequence up to a max value
+//
+//
+
+fn fibonacci(n: u32) -> Vec<u32> {
+    let mut fib = vec![0, 1];
+
+    while fib[fib.len() - 1] < n {
+        fib.push(fib.iter().rev().take(2).sum());
     }
+
+    fib 
 }
+
+
