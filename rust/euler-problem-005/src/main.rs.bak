@@ -1,0 +1,39 @@
+fn main() {
+    println!("Hello, world!");
+    if check_divisible(5, 3) {
+        println!("Divisible!")
+    } else {
+        println!("Not divisible!")
+    }
+    let mut num = 2520;
+    let mut found_it = false;
+
+    while found_it == false {
+        for k in 11..21 {
+            println!("Checking {num} with {k}");
+            if !check_divisible(num, k) {
+                println!("{num} not divisible by {k}. Moving to next number");
+                num += 2520;
+                continue
+            }
+
+
+
+            /* if check_divisible(num, k) {
+                println!("checked with num {num}");
+            } else {
+                println!("borked");
+                num += 2520;
+                break
+            }*/
+        }
+    }
+}
+
+fn check_divisible(a: i64, b: i64) -> bool {
+    if a % b == 0 {
+        true
+    } else {
+        false
+    }
+}
